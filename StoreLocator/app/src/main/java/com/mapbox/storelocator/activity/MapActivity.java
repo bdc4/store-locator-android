@@ -125,7 +125,7 @@ public class MapActivity extends AppCompatActivity implements
     listOfIndividualLocations = new ArrayList<>();
 
     // Initialize the theme that was selected in the previous activity. The blue theme is set as the backup default.
-    chosenTheme = getIntent().getIntExtra(SELECTED_THEME, R.style.AppTheme_Blue);
+    chosenTheme = R.style.AppTheme_Gray;
 
     // Set up the Mapbox map
     mapView = findViewById(R.id.mapView);
@@ -310,7 +310,8 @@ public class MapActivity extends AppCompatActivity implements
     }
 
     // Check for an internet connection before making the call to Mapbox Directions API
-    if (deviceHasInternetConnection()) {
+    // Disabled for now to prevent unneeded API calls
+    if (false && deviceHasInternetConnection()) {
       // Start call to the Mapbox Directions API
       if (selectedLocation != null) {
         getInformationFromDirectionsApi(selectedLocationPoint, true, null);
